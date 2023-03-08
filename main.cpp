@@ -139,13 +139,11 @@ int main() {
                             operation.current_state = EllipseGenerateOperation::CurrentState::SemiMinorGeneration;
                             operation.semi_major_end = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
-                            goto END_CASE;
+                            break;
                         }
                     }
 
                     drag_mode = std::monostate{};
-
-END_CASE:
                     break;
                 }
 

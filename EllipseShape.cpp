@@ -13,7 +13,7 @@ namespace{
     Eigen::Vector2<T> toEigenVector(const sf::Vector2<T> &v) noexcept { return { v.x, v.y }; }
 };
 
-EllipseShape::EllipseShape(float semi_major, float semi_minor, std::size_t point_count) : semi_major_radius { semi_major }, semi_minor_radius { semi_minor }, point_count { point_count } {
+EllipseShape::EllipseShape(float semi_major, float semi_minor, std::size_t point_count) : semi_major_axis { semi_major }, semi_minor_axis { semi_minor }, point_count { point_count } {
     if (point_count < 3){
         throw std::invalid_argument { "Number of points must be at least 3." };
     }
@@ -60,27 +60,27 @@ size_t EllipseShape::getPointCount() const {
 
 sf::Vector2f EllipseShape::getPoint(std::size_t index) const {
     float angle = 2.f * std::numbers::pi_v<float> * index / point_count;
-    return { semi_major_radius * std::cos(angle), semi_minor_radius * std::sin(angle) };
+    return { semi_major_axis * std::cos(angle), semi_minor_axis * std::sin(angle) };
 }
 
-float EllipseShape::getSemiMajorRadius() const noexcept {
-    return semi_major_radius;
+float EllipseShape::getSemiMajorAxis() const noexcept {
+    return semi_major_axis;
 }
 
-void EllipseShape::setSemiMajorRadius(float value) noexcept {
-    semi_major_radius = value;
+void EllipseShape::setSemiMajorAxis(float value) noexcept {
+    semi_major_axis = value;
     sf::Shape::update();
 }
 
-float EllipseShape::getSemiMinorRadius() const noexcept {
-    return semi_minor_radius;
+float EllipseShape::getSemiMinorAxis() const noexcept {
+    return semi_minor_axis;
 }
 
-void EllipseShape::setSemiMinorRadius(float value) noexcept {
-    semi_minor_radius = value;
+void EllipseShape::setSemiMinorAxis(float value) noexcept {
+    semi_minor_axis = value;
     sf::Shape::update();
 }
 
 Eigen::Matrix2f EllipseShape::getEllipseMatrix() const {
-    return Eigen::DiagonalMatrix<float, 2> { std::pow(semi_major_radius, -2.f), std::pow(semi_minor_radius, -2.f) };
+    return Eigen::DiagonalMatrix<float, 2> { std::pow(semi_major_axis, -2.f), std::pow(semi_minor_axis, -2.f) };
 }

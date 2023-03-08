@@ -30,10 +30,10 @@ public:
 
     bool contains(sf::Vector2f point) const;
 
-    float getSemiMajorRadius() const noexcept;
-    void setSemiMajorRadius(float value) noexcept;
-    float getSemiMinorRadius() const noexcept;
-    void setSemiMinorRadius(float value) noexcept;
+    float getSemiMajorAxis() const noexcept;
+    void setSemiMajorAxis(float value) noexcept;
+    float getSemiMinorAxis() const noexcept;
+    void setSemiMinorAxis(float value) noexcept;
 
     //////////////////////////////////////////////////
     /// Overridden member functions.
@@ -51,7 +51,7 @@ public:
 
 private:
     std::size_t point_count;
-    float semi_major_radius, semi_minor_radius;
+    float semi_major_axis, semi_minor_axis;
 
     Eigen::Matrix2f getEllipseMatrix() const;
 };

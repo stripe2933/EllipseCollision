@@ -79,7 +79,6 @@ int main() {
 
                 case sf::Event::MouseButtonPressed:{
                     if (event.mouseButton.button == sf::Mouse::Button::Left){
-
                         if (std::holds_alternative<std::monostate>(drag_mode)){
                             auto coord = window.mapPixelToCoords({ event.mouseButton.x, event.mouseButton.y });
 
@@ -118,13 +117,13 @@ int main() {
                         if (operation.current_state == EllipseGenerateOperation::CurrentState::SemiMajorGeneration){
                             auto initial_current_offset = current_coord - operation.initial_coord;
                             operation.target->setRotation(initial_current_offset.angle());
-                            operation.target->setSemiMajorRadius(initial_current_offset.length());
+                            operation.target->setSemiMajorAxis(initial_current_offset.length());
                             descriptors.at(operation.target).update();
                         }
                         else{ // operation.operation == EllipseGenerateOperation::CurrentState::SemiMinorGeneration
                             auto semi_major_end_current_offset = current_coord - operation.semi_major_end;
                             auto perpendicular_offset = semi_major_end_current_offset - semi_major_end_current_offset.projectedOnto(operation.semi_major_end - operation.initial_coord);
-                            operation.target->setSemiMinorRadius(perpendicular_offset.length());
+                            operation.target->setSemiMinorAxis(perpendicular_offset.length());
                             descriptors.at(operation.target).update();
                         }
                     }

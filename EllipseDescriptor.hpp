@@ -18,7 +18,7 @@ public:
     EllipseDescriptor &operator=(EllipseDescriptor &&source) noexcept { target = std::move(source.target); return *this; }
 
     /**
-     * Call when target ellipse's semi major or minor radius changed.
+     * Call when target ellipse's semi major or minor axis length changed.
      */
     void update();
 

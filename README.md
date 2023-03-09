@@ -14,8 +14,8 @@ Let two ellipses $E_A$ and $E_B$ that centered at $\mathbf a$ and $\mathbf b$ ar
 
 $$
 \begin{aligned}
-E_A&=\{ \mathbf x: (\mathbf x-\mathbf a)^T A (\mathbf x-\mathbf a) \le 1 \} \\
-E_B&=\{ \mathbf x: (\mathbf x-\mathbf b)^T B (\mathbf x-\mathbf b) \le 1 \}
+E_A &: (\mathbf x-\mathbf a)^T A (\mathbf x-\mathbf a) \le 1 \\
+E_B &: (\mathbf x-\mathbf b)^T B (\mathbf x-\mathbf b) \le 1 
 \end{aligned}
 $$
 

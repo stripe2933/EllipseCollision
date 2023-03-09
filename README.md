@@ -1,10 +1,32 @@
 # EllipseCollision
 Detect if two arbitrary rotated/scaled/translated ellipses are colliding. Interactive simulation available using SFML.
 
-## Running Application Image
+## Sample
 <img width="752" alt="Screenshot 2023-03-09 at 1 49 24 AM" src="https://user-images.githubusercontent.com/63503910/223776777-5e599eb4-2612-4e37-af07-2f8ebc024457.png">
 
 The colliding ellipses are marked with red boundary.
+
+## Build
+
+Clone project:
+```bash
+git clone https://github.com/stripe2933/EllipseCollision.git
+cd EllipseCollision
+```
+
+Build using CMake (SFML 3, Eigen 3, and fmt required.)
+```bash
+mkdir build
+cd build
+cmake ..
+cd ../
+cmake --build build #! [--config release] for release build.
+```
+
+Run executable
+```bash
+./build/EllipseCollision
+```
 
 ## How does it works?
 
